@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="exmg-long-ago">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `exmg-long-ago`
+     * Element to convert time/text to show time passed
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ExmgLongAgo extends Polymer.Element {
+      static get is() { return 'exmg-long-ago'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'exmg-long-ago'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(ExmgLongAgo.is, ExmgLongAgo);
+  </script>
+</dom-module>
