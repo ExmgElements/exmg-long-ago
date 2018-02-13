@@ -4,33 +4,102 @@
   <template>
     <style>
       :host {
-        display: block;
+        display: inline-block;
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
+    [[_formattedValue]]
   </template>
 
   <script>
+  {
+    'use strict';
     /**
-     * `exmg-long-ago`
-     * Element to convert time/text to show time passed
-     *
-     * @customElement
-     * @polymer
-     * @demo demo/index.html
-     */
-    class ExmgLongAgo extends Polymer.Element {
-      static get is() { return 'exmg-long-ago'; }
+    * Element to convert time/text to show time passed
+    *
+    * ```html
+    * <exmg-long-ago"></exmg-long-ago>
+    * ```
+    *
+    * @customElement
+    * @polymer
+    * @group Exmg Core Elements
+    * @element exmg-long-ago
+    * @memberof Exmg
+    * @extends Polymer.Element
+    * @summary Element to convert time/text to show time passed
+    */
+    class LongAgoElement extends Polymer.Element {
+      static get is() {
+        return 'exmg-long-ago';
+      }
       static get properties() {
         return {
-          prop1: {
+          timestamp: {
+            type: Number,
+          },
+          _formattedValue: {
             type: String,
-            value: 'exmg-long-ago'
+            computed: '_computeValue(timestamp)'
           }
         };
       }
-    }
 
-    window.customElements.define(ExmgLongAgo.is, ExmgLongAgo);
+      /**
+       * Authenticates using an identifier / password combination.
+       *
+       * @param  {timestamp} timestamp timestamp to be used.
+       * @return {formatValue} formatValue that is shown to user
+       */
+      _computeValue(timestamp) {
+        return this.formatValue(timestamp);
+      }
+
+      formatValue(date) {
+        return date ? this._format(date) : '';
+      }
+
+      _format(date) {
+        if (typeof date === 'number') {
+          date = new Date(date);
+        } else {
+          return 'Invalid date notation';
+        }
+
+        const diff = (((new Date()).getTime() - date.getTime()) / 1000);
+        const dayDiff = Math.floor(diff / 86400);
+
+        if (isNaN(dayDiff) || dayDiff < 0) {
+          return;
+        }
+
+        if (dayDiff === 1) {
+          return 'Yesterday';
+        }
+
+        if (dayDiff >= 31) {
+          return 'Long ago';
+        }
+
+        if (dayDiff === 0) {
+          if (diff < 3600 && diff < 86400) {
+            return diff < 60 ? 'just now' : diff < 120 ? '1 minute ago' :
+              Math.floor(diff / 60) + ' minutes ago';
+          } else {
+            return diff < 7200 ? '1 hour ago' : Math.floor(diff / 3600) + ' hours ago';
+          }
+        }
+
+        return dayDiff < 7 ? dayDiff + ' days ago' : Math.ceil(dayDiff / 7) + ' weeks ago';
+      }
+
+    }
+    window.customElements.define(LongAgoElement.is, LongAgoElement);
+
+    /**
+     * @namespace Exmg
+     */
+    window.Exmg = window.Exmg || {};
+    Exmg.LongAgoElement = LongAgoElement;
+  }
   </script>
 </dom-module>
