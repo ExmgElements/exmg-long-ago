@@ -13,7 +13,7 @@
     <link rel="import" href="../exmg-long-ago.html">
   </head>
   <body>
-    <test-fixture id="BasicTestFixture">
+    <test-fixture id="BasicElement">
       <template>
         <exmg-long-ago timestamp="1518535307240"></exmg-long-ago>
       </template>
@@ -21,15 +21,15 @@
 
     <script>
       suite('<exmg-long-ago>', _ => {
-        let basicElement;
+        let el;
 
-        suite(() => {
-          basicElement = fixture('BasicElement');
+        setup(() => {
+          el = fixture('BasicElement');
         });
 
         suite('instantiating the element with default properties works', _ => {
-          test('... has default props', function() {
-            expect(basicElement[0]).to.be.a('number');
+          test('element is upgraded', () => {
+            assert.equal(el.constructor.is, 'exmg-long-ago');
           });
         });
       });
