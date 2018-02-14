@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>exmg-long-ago</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../../promise-polyfill/promise-polyfill.html">
+    <link rel="import" href="../exmg-long-ago.html">
+  </head>
+  <body>
+    <test-fixture id="BasicTestFixture">
+      <template>
+        <exmg-long-ago timestamp="1518535307240"></exmg-long-ago>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('<exmg-long-ago>', _ => {
+        let basicElement;
+
+        suite(() => {
+          basicElement = fixture('BasicElement');
+        });
+
+        suite('instantiating the element with default properties works', _ => {
+          test('... has default props', function() {
+            expect(basicElement[0]).to.be.a('number');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
