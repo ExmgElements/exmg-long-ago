@@ -15,7 +15,9 @@
   <body>
     <test-fixture id="BasicElement">
       <template>
-        <exmg-long-ago timestamp="1518535307240"></exmg-long-ago>
+        <exmg-long-ago
+          timestamp="1518535307240"
+        ></exmg-long-ago>
       </template>
     </test-fixture>
 
@@ -29,7 +31,13 @@
 
         suite('instantiating the element with default properties works', _ => {
           test('element is upgraded', () => {
-            assert.equal(el.constructor.is, 'exmg-long-ago');
+            expect(el).to.equal.is;
+          });
+          test('timestamp is a present', () => {
+            expect(el).to.have.property('timestamp');
+          });
+          test('timestamp is a number', () => {
+            expect(el.timestamp).to.be.an('number');
           });
         });
       });
