@@ -10,83 +10,28 @@
 
     <link rel="import" href="../../polymer/lib/mixins/gesture-event-listeners.html">
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../../paper-card/paper-card.html">
 
     <link rel="import" href="../exmg-long-ago.html">
 
     <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles">
-      </style>
+      <style is="custom-style" include="demo-pages-shared-styles"></style>
     </custom-style>
   </head>
+
   <body>
     <dom-module id="long-ago-demo">
       <template>
-        <div class="vertical-section-container centered">
-          <custom-style>
-            <style>
-              pre {
-                background: white;
-                padding: 22px;
-              }
-              select,
-              input {
-                width: 450px;
-                padding: 6px;
-              }
-              input.small {
-                width: 150px;
-              }
-              select {
-                background: white;
-                border: 1px solid #ccc;
-                border-radius: 1px;
-                font-size: 12px;
-                height: 29px;
-                padding: 5px;
-              }
-              button {
-                padding: 6px;
-                background: #c7bfbf;
-                color: black;
-                min-width: 100px;
-                border: none;
-              }
-              label > span {
-                display: block;
-                margin: 16px 0 6px 0;
-              }
-              p {
-                margin: 16px 4px !important;
-              }
-            </style>
-          </custom-style>
-          <h3>Basic exmg-long-ago demo timestamp</h3>
-          <demo-snippet>
-            <template>
-              <exmg-long-ago timestamp="[[timestamp]]"></exmg-long-ago>
-            </template>
-          </demo-snippet>
-          <h3>Time now</h3>
-          <demo-snippet>
-            <template>
-              <exmg-long-ago timestamp="[[now]]"></exmg-long-ago>
-            </template>
-          </demo-snippet>
-          <h3>Basic exmg-long-ago demo few hours ago</h3>
-          <demo-snippet>
-            <template>
-              <exmg-long-ago timestamp="[[fewHoursAgo]]"></exmg-long-ago>
-            </template>
-          </demo-snippet>
-          <h3>Basic exmg-long-ago demo few days ago</h3>
-          <demo-snippet>
-            <template>
-              <exmg-long-ago timestamp="[[fewDaysAgo]]"></exmg-long-ago>
-            </template>
-          </demo-snippet>
-        </div>
+        <h3>Basic exmg-long-ago demo timestamp</h3>
+        <exmg-long-ago timestamp="[[timestamp]]"></exmg-long-ago>
+        
+        <h3>Time now</h3>
+        <exmg-long-ago timestamp="[[now]]"></exmg-long-ago>
+        
+        <h3>Basic exmg-long-ago demo few hours ago</h3>
+        <exmg-long-ago timestamp="[[fewHoursAgo]]"></exmg-long-ago>
+          
+        <h3>Basic exmg-long-ago demo few days ago</h3>
+        <exmg-long-ago timestamp="[[fewDaysAgo]]"></exmg-long-ago>
       </template>
       <script>
         window.addEventListener('WebComponentsReady', function() {
@@ -102,15 +47,15 @@
                 },
                 now: {
                   type: Number,
-                  value: new Date().getTime(),
+                  value: Date.now(),
                 },
                 fewHoursAgo: {
                   type: Number,
-                  value: new Date().getTime() - ((1000 * 60) * 60) * 12,
+                  value: Date.now() - ((1000 * 60) * 60) * 12,
                 },
                 fewDaysAgo: {
                   type: Number,
-                  value: new Date().getTime() - ((1000 * 60) * 60) * 128,
+                  value: Date.now() - ((1000 * 60) * 60) * 128,
                 },
               };
             }
