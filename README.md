@@ -1,6 +1,8 @@
-# \<exmg-long-ago\>
+# exmg-long-ago [![Build Status](https://travis-ci.org/ExmgElements/exmg-long-ago.svg?branch=master)](https://travis-ci.org/ExmgElements/exmg-long-ago)
 
-Element to convert time/text to show time passed
+Element for displaying long ago in a human readable format
+
+Please visit the [API Documentation and demo](http://ExmgElements.github.io/exmg-long-ago/) page for more information.
 
 ## Install the Polymer-CLI
 

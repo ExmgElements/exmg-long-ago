@@ -1,11 +1,17 @@
 {
   "name": "exmg-long-ago",
   "private": false,
-  "description": "exmg long ago Element",
+  "description": "Element to convert time/text to show time passed",
   "main": "exmg-long-ago.html",
+  "version": "1.0.1",
   "keywords": [
     "Exmg",
-    "test"
+    "ExmgElements",
+    "exmg-long-ago",
+    "date",
+    "dates",
+    "long-ago",
+    "formatting"
   ],
   "author": "Ex Machina",
   "devDependencies": {
