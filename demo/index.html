@@ -83,7 +83,9 @@
       <script>
         window.addEventListener('WebComponentsReady', function() {
           class LongAgoDemo extends Polymer.GestureEventListeners(Polymer.Element) {
-            static get is() { return 'long-ago-demo'; }
+            static get is() {
+              return 'long-ago-demo';
+            }
             static get properties() {
               return {
                 timestamp: {
