@@ -1,0 +1,33 @@
+{
+  "name": "exmg-long-ago",
+  "description": "Element to convert time/text to show time passed",
+  "main": "exmg-long-ago.html",
+  "authors": [
+    "Ex Machina"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.4.0"
+  },
+  "devDependencies": {
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "promise-polyfill": "PolymerLabs/promise-polyfill#1 - 2",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
+    "paper-card": "PolymerElements/paper-card#^2.0.0",
+    "iron-component-page": "PolymerElements/iron-component-page#^3.0.1"
+  },
+  "resolutions": {
+    "polymer": "^2.0.0"
+  },
+  "homepage": "https://github.com/ExmgElements/exmg-long-ago",
+  "_release": "ce5a920d20",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "ce5a920d2007cf23f8eaaa749c731e5950c6c13a"
+  },
+  "_source": "https://github.com/ExmgElements/exmg-long-ago.git",
+  "_target": "master",
+  "_originalSource": "ExmgElements/exmg-long-ago",
+  "_direct": true
+}

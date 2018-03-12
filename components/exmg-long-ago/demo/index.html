@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>exmg-long-ago demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../polymer/lib/mixins/gesture-event-listeners.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+
+    <link rel="import" href="../exmg-long-ago.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles"></style>
+    </custom-style>
+  </head>
+
+  <body>
+    <dom-module id="long-ago-demo">
+      <template>
+        <h3>Basic exmg-long-ago demo timestamp</h3>
+        <exmg-long-ago timestamp="[[timestamp]]"></exmg-long-ago>
+        
+        <h3>Time now</h3>
+        <exmg-long-ago timestamp="[[now]]"></exmg-long-ago>
+        
+        <h3>Basic exmg-long-ago demo few hours ago</h3>
+        <exmg-long-ago timestamp="[[fewHoursAgo]]"></exmg-long-ago>
+          
+        <h3>Basic exmg-long-ago demo few days ago</h3>
+        <exmg-long-ago timestamp="[[fewDaysAgo]]"></exmg-long-ago>
+      </template>
+      <script>
+        window.addEventListener('WebComponentsReady', function() {
+          class LongAgoDemo extends Polymer.GestureEventListeners(Polymer.Element) {
+            static get is() {
+              return 'long-ago-demo';
+            }
+            static get properties() {
+              return {
+                timestamp: {
+                  type: Number,
+                  value: 1518535307240
+                },
+                now: {
+                  type: Number,
+                  value: Date.now(),
+                },
+                fewHoursAgo: {
+                  type: Number,
+                  value: Date.now() - ((1000 * 60) * 60) * 12,
+                },
+                fewDaysAgo: {
+                  type: Number,
+                  value: Date.now() - ((1000 * 60) * 60) * 128,
+                },
+              };
+            }
+          }
+          window.customElements.define(LongAgoDemo.is, LongAgoDemo);
+        });
+      </script>
+    </dom-module>
+    <long-ago-demo></long-ago-demo>
+  </body>
+</html>
