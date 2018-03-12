@@ -2,12 +2,12 @@
   "name": "exmg-long-ago",
   "description": "Element to convert time/text to show time passed",
   "main": "exmg-long-ago.html",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": [
     "Ex Machina"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0"
+    "polymer": "Polymer/polymer#^2.4.0"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",

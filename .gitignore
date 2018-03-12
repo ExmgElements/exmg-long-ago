@@ -1,13 +1,4 @@
-.DS_Store
-npm-debug.log
-.idea
-bower_components/
+bower_components
+build/
 node_modules/
-dist/
-test-reports/
-intl/
-coverage/
-reports/
-*.report.html
-/version.js
-/private
+*.sublime*
