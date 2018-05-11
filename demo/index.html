@@ -6,64 +6,33 @@
 
     <title>exmg-long-ago demo</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
-    <link rel="import" href="../../polymer/lib/mixins/gesture-event-listeners.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <!--
+      TODO: Uncommented demo snippet becuase of error
+      Uncaught DOMException: Failed to execute 'define' on 'CustomElementRegistry': this name has already been used with this registry at http://127.0.0.1:8081/components/@polymer/polymer/lib/elements/dom-module.js:146:16
+    -->
 
-    <link rel="import" href="../exmg-long-ago.html">
+    <!--script type="module" src="../node_modules/@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+    <script type="module" src="../node_modules/@polymer/iron-demo-helpers/demo-snippet.js"></script-->
 
-    <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles"></style>
-    </custom-style>
+    <script type="module" src="../exmg-long-ago.js"></script>
+
+    <!--custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style-->
   </head>
 
   <body>
-    <dom-module id="long-ago-demo">
-      <template>
-        <h3>Basic exmg-long-ago demo timestamp</h3>
-        <exmg-long-ago timestamp="[[timestamp]]"></exmg-long-ago>
-        
-        <h3>Time now</h3>
-        <exmg-long-ago timestamp="[[now]]"></exmg-long-ago>
-        
-        <h3>Basic exmg-long-ago demo few hours ago</h3>
-        <exmg-long-ago timestamp="[[fewHoursAgo]]"></exmg-long-ago>
-          
-        <h3>Basic exmg-long-ago demo few days ago</h3>
-        <exmg-long-ago timestamp="[[fewDaysAgo]]"></exmg-long-ago>
-      </template>
-      <script>
-        window.addEventListener('WebComponentsReady', function() {
-          class LongAgoDemo extends Polymer.GestureEventListeners(Polymer.Element) {
-            static get is() {
-              return 'long-ago-demo';
-            }
-            static get properties() {
-              return {
-                timestamp: {
-                  type: Number,
-                  value: 1518535307240
-                },
-                now: {
-                  type: Number,
-                  value: Date.now(),
-                },
-                fewHoursAgo: {
-                  type: Number,
-                  value: Date.now() - ((1000 * 60) * 60) * 12,
-                },
-                fewDaysAgo: {
-                  type: Number,
-                  value: Date.now() - ((1000 * 60) * 60) * 128,
-                },
-              };
-            }
-          }
-          window.customElements.define(LongAgoDemo.is, LongAgoDemo);
-        });
-      </script>
-    </dom-module>
-    <long-ago-demo></long-ago-demo>
+    <div class="vertical-section-container centered">
+      <h3>Basic exmg-long-ago demo timestamp</h3>
+      <!--demo-snippet>
+        <template-->
+          <exmg-long-ago timestamp="1526037733212"></exmg-long-ago>
+        <!--/template>
+      </demo-snippet-->
+
+    </div>
   </body>
 </html>

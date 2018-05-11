@@ -1,30 +1,49 @@
 {
-  "name": "exmg-long-ago",
-  "private": false,
+  "name": "@exmg/exmg-long-ago",
+  "version": "3.0.0",
   "description": "Element to convert time/text to show time passed",
-  "main": "exmg-long-ago.html",
-  "version": "1.0.1",
+  "contributors": [
+    "Ex Machina"
+  ],
   "keywords": [
-    "Exmg",
-    "ExmgElements",
-    "exmg-long-ago",
+    "web-components",
+    "web-component",
+    "polymer",
     "date",
     "dates",
-    "long-ago",
+    "format",
     "formatting"
   ],
-  "author": "Ex Machina",
+  "license": "MIT",
+  "main": "exmg-long-ago.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:ExmgElements/exmg-long-ago.git"
+  },
+  "homepage": "http://exmg.github.io/ExmgElements/exmg-long-ago/",
+  "dependencies": {
+    "@polymer/iron-component-page": "^3.0.0-pre.19",
+    "@polymer/polymer": "^3.0.0-pre.13"
+  },
   "devDependencies": {
-    "bower": "latest",
     "eslint": "^4.11.0",
     "eslint-config-exmg": "latest",
     "eslint-plugin-html": "^3.0.0",
-    "polymer-cli": "^1.2.0",
-    "web-component-tester": "^6.4.1"
+    "polymer-cli": "^1.7.1",
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.12",
+    "@webcomponents/webcomponentsjs": "^2.0.0-beta.2",
+    "wct-browser-legacy": "^1.0.0"
+  },
+  "resolutions": {
+    "@webcomponents/webcomponentsjs": "2.0.0",
+    "type-detect": "1.0.0",
+    "supports-color": "3.1.2",
+    "inherits": "2.0.3",
+    "samsam": "1.1.2"
   },
   "scripts": {
-    "lint": "polymer lint --rules polymer-2 --input *.html",
+    "lint": "polymer lint --rules polymer-3 --input *.js",
     "eslint": "eslint . --ext js,html --ignore-path .gitignore",
-    "analyze": "polymer analyze --input exmg-long-ago.html > analysis.json"
+    "analyze": "polymer analyze --input exmg-long-ago.js > analysis.json"
   }
 }

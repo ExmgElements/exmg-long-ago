@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
     <title>exmg-long-ago</title>
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
+    <script src="@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../../polymer/polymer.html">
-    <link rel="import" href="../../promise-polyfill/promise-polyfill.html">
-    <link rel="import" href="../exmg-long-ago.html">
+    <script type="module" src="@polymer/polymer/polymer.js"></script>
+    <script type="module" src="@polymer/promise-polyfill/promise-polyfill.js"></script>
+    <script type="module" src="../exmg-long-ago.js"></script>
   </head>
   <body>
     <test-fixture id="BasicElement">
@@ -21,37 +21,40 @@
       </template>
     </test-fixture>
 
-    <script>
-      suite('<exmg-long-ago>', _ => {
-        let el;
+    <script type="module">
+import '@polymer/polymer/polymer.js';
+import '@polymer/promise-polyfill/promise-polyfill.js';
+import '../exmg-long-ago.js';
+suite('<exmg-long-ago>', _ => {
+  let el;
 
-        setup(() => {
-          el = fixture('BasicElement');
-        });
+  setup(() => {
+    el = fixture('BasicElement');
+  });
 
-        suite('instantiating the element with default properties works', _ => {
-          test('element is upgraded', () => {
-            expect(el).to.equal.is;
-          });
-          test('timestamp is a present', () => {
-            expect(el).to.have.property('timestamp');
-          });
-          test('timestamp is a number', () => {
-            expect(el.timestamp).to.be.an('number');
-          });
-        });
+  suite('instantiating the element with default properties works', _ => {
+    test('element is upgraded', () => {
+      expect(el).to.equal.is;
+    });
+    test('timestamp is a present', () => {
+      expect(el).to.have.property('timestamp');
+    });
+    test('timestamp is a number', () => {
+      expect(el.timestamp).to.be.an('number');
+    });
+  });
 
-        suite('testing output of element', _ => {
-          test('setting value to 12 hours ago', function() {
-            el.timestamp = new Date().getTime() - ((1000 * 60) * 60) * 12;
-            expect(el._formattedValue).to.have.string('12 hours ago');
-          });
-          test('setting value to 5 days ago', function() {
-            el.timestamp = new Date().getTime() - ((1000 * 60) * 60) * 128;
-            expect(el._formattedValue).to.have.string('5 days ago');
-          });
-        });
-      });
-    </script>
+  suite('testing output of element', _ => {
+    test('setting value to 12 hours ago', function() {
+      el.timestamp = new Date().getTime() - ((1000 * 60) * 60) * 12;
+      expect(el._formattedValue).to.have.string('12 hours ago');
+    });
+    test('setting value to 5 days ago', function() {
+      el.timestamp = new Date().getTime() - ((1000 * 60) * 60) * 128;
+      expect(el._formattedValue).to.have.string('5 days ago');
+    });
+  });
+});
+</script>
   </body>
 </html>
